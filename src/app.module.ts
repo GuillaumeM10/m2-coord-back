@@ -3,7 +3,7 @@ import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {MongooseModule} from "@nestjs/mongoose";
 import {ConfigModule, ConfigService} from "@nestjs/config";
-import {GameModule} from './game/game.module';
+import {GamesModule} from './game/games.module';
 
 @Module({
     imports: [
@@ -17,7 +17,7 @@ import {GameModule} from './game/game.module';
                 uri: `mongodb://${config.get<string>('MONGO_HOST')}:${config.get<string>('MONGO_PORT')}/${config.get<string>('MONGO_DB')}`,
             }),
         }),
-        GameModule,
+        GamesModule,
     ],
     controllers: [AppController],
     providers: [AppService],
