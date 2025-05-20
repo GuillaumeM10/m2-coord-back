@@ -13,7 +13,7 @@ export class CreateGameDto {
     @IsNotEmpty()
     photoUrl: string;
 
-    @ApiProperty({enum: GameModes})
+    @ApiProperty({enum: GameModes, isArray: true})
     @ArrayNotEmpty()
     @IsEnum(GameModes, {each: true})
     modes: GameModes[];
