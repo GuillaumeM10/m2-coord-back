@@ -30,6 +30,6 @@ export class GameDto {
     @ApiProperty()
     photoUrl: string;
 
-    @ApiProperty({enum: GameModes})
+    @ApiProperty({enum: GameModes, isArray: true})
     modes: GameModes[];
 }
