@@ -1,3 +1,34 @@
+# MINIO SETUP
+
+### 1. Install MinIO
+
+Create .env file based on .env.example \
+Eecute the following command to start MinIO and others services:
+
+```bash
+docker-compose up -d
+```
+
+### 2. Access MinIO
+
+Go to http://localhost:9000 (or the port you chose) and login with the credentials in your .env file. (default: admin:admin123)
+
+### 3. Create access key and secret key
+
+- Go to Access Keys http://localhost:9001/access-keys
+- Create new access key and secret key
+- Copy the access key and secret key to your .env file
+
+### 4. Create bucket
+
+- Go to Buckets http://localhost:9001/buckets
+- Create new bucket named `main`
+
+### Use files service
+
+- check swagger for endpoints
+- http://localhost:3000/api
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
