@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Country } from './schemas/country.schema';
+import { CreateCountryDto } from './dto/create-country.dto';
 
 @Injectable()
 export class CountryService {
@@ -9,7 +10,7 @@ export class CountryService {
     @InjectModel(Country.name) private countryModel: Model<Country>,
   ) {}
 
-  async create(dto: any) {
+  async create(dto: CreateCountryDto) {
     const country = new this.countryModel(dto);
     return country.save();
   }
