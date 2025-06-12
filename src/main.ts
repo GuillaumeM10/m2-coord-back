@@ -27,4 +27,4 @@ async function bootstrap() {
   Logger.log(`Server running on http://localhost:${process.env.PORT ?? 3000}`);
 }
 
-bootstrap();
+await bootstrap();

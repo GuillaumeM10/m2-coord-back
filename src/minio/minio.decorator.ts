@@ -1,4 +1,4 @@
-import { Inject, Logger } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 
 export const MINIO_TOKEN = 'MINIO_INJECT_TOKEN';
 
