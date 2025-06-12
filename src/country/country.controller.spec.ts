@@ -5,7 +5,6 @@ import { CreateCountryDto } from './dto/create-country.dto';
 
 describe('CountryController', () => {
   let controller: CountryController;
-  let service: CountryService;
 
   const mockService = {
     findAll: jest.fn(),
@@ -21,7 +20,6 @@ describe('CountryController', () => {
     }).compile();
 
     controller = module.get<CountryController>(CountryController);
-    service = module.get<CountryService>(CountryService);
   });
 
   afterEach(() => {
