@@ -1,7 +1,7 @@
 .PHONY : start
 start:
 	@echo "start api"
-	@pnpm run dev start:dev
+	@pnpm run start:dev
 
 .PHONY: up
 up:
