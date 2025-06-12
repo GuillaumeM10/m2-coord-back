@@ -2,14 +2,12 @@ name: Lint
 
 on:
   push:
-    branches-ignore:
-      - main
-      - dev
+    branches-ignore: [main, dev]
   pull_request:
     branches: [main, dev]
 
 jobs:
-  lint:
+  eslint:
     runs-on: ubuntu-latest
 
     steps:
