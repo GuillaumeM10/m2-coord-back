@@ -3,10 +3,8 @@ import { CountryController } from './country.controller';
 import { CountryService } from './country.service';
 import { CreateCountryDto } from './dto/create-country.dto';
 
-// TODO: Review commented lines
 describe('CountryController', () => {
   let controller: CountryController;
-  // let service: CountryService;
 
   const mockService = {
     findAll: jest.fn(),
@@ -22,7 +20,6 @@ describe('CountryController', () => {
     }).compile();
 
     controller = module.get<CountryController>(CountryController);
-    // service = module.get<CountryService>(CountryService);
   });
 
   afterEach(() => {
