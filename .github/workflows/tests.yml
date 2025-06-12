@@ -22,3 +22,9 @@ jobs:
 
       - name: Run tests Jest
         run: npm run test:cov
+
+      - name: Artifact coverage deployment
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/
