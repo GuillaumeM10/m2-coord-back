@@ -11,6 +11,11 @@ export class CountryController {
     return this.countryService.findAll();
   }
 
+  @Get('questions')
+  getQuestions() {
+    return this.countryService.getQuestions();
+  }
+
   @Get(':code')
   findByCode(@Param('code') code: string) {
     return this.countryService.findByCode(code);

@@ -33,4 +33,8 @@ export class CreateCountryDto {
   @IsOptional()
   @IsObject()
   geoJson?: any;
+
+  @IsOptional()
+  @IsString()
+  type?: string;
 }
