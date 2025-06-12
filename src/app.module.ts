@@ -6,6 +6,7 @@ import { FilesModule } from './files/files.module';
 import { GamesModule } from './game/games.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { InitDataModule } from './initData/initData.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       }),
     }),
     GamesModule,
+    InitDataModule,
   ],
   controllers: [AppController],
   providers: [AppService],
