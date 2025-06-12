@@ -23,11 +23,8 @@ async function bootstrap() {
   );
 
   await app.listen(process.env.PORT ?? 3000);
-<<<<<<< dev-jeu-drapeaux
   console.log(`Application is running on: ${await app.getUrl()}`);
-=======
   Logger.log(`Server running on http://localhost:${process.env.PORT ?? 3000}`);
->>>>>>> dev
 }
 
 bootstrap();
