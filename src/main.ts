@@ -1,3 +1,5 @@
+import './instrument';
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -27,4 +29,9 @@ async function bootstrap() {
   Logger.log(`Server running on http://localhost:${process.env.PORT ?? 3000}`);
 }
 
-await bootstrap();
+bootstrap()
+  .then(() => {})
+  .catch((err) => {
+    console.error('Error during application bootstrap:', err);
+    process.exit(1);
+  });

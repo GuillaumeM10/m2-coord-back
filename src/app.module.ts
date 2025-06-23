@@ -8,11 +8,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CountryModule } from './country/country.module';
 import { AnswerModule } from './answer/answer.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { InitDataModule } from './initData/initData.module';
+import { SentryGlobalFilter, SentryModule } from '@sentry/nestjs/setup';
+import { APP_FILTER } from '@nestjs/core';
 import { FigureModule } from './figures/figures.module';
+import { InitDataModule } from './initData/initData.module';
 
 @Module({
   imports: [
+    SentryModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -32,6 +35,12 @@ import { FigureModule } from './figures/figures.module';
     InitDataModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: SentryGlobalFilter,
+    },
+  ],
 })
 export class AppModule {}

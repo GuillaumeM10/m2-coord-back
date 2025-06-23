@@ -60,7 +60,7 @@ export class FilesService {
       throw new HttpException('File not found', 400);
     }
 
-    const uploadedFiles = new Promise(async (resolve, reject) => {
+    const uploadedFiles = new Promise((resolve, reject) => async () => {
       file.originalname = file.originalname.replace(/ /g, '_');
       file.originalname = file.originalname.replace(/[^a-zA-Z0-9_.-]/g, '');
 
