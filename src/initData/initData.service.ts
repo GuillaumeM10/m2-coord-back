@@ -63,7 +63,7 @@ export class InitDataService implements OnModuleInit {
         } else {
           this.logger.warn('No valid flag data found in JSON file');
         }
-      } catch (error) {
+      } catch (error: unknown) {
         this.logger.error('Failed to initialize flag data', error.stack);
       }
     } else {
@@ -112,7 +112,7 @@ export class InitDataService implements OnModuleInit {
         } else {
           this.logger.warn('No valid figure data found in JSON file');
         }
-      } catch (error) {
+      } catch (error: unknown) {
         this.logger.error('Failed to initialize figure data', error.stack);
       }
     } else {
@@ -150,7 +150,7 @@ export class InitDataService implements OnModuleInit {
         } else {
           this.logger.warn('No valid games found in JSON file');
         }
-      } catch (error) {
+      } catch (error: unknown) {
         this.logger.error('Failed to initialize games data', error.stack);
       }
     } else {
