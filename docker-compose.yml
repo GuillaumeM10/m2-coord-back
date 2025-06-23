@@ -1,0 +1,71 @@
+name: coord-back
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    volumes:
+      - postgres_volume_dev:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    environment:
+      ADMINER_DESIGN: pepa-linha
+      ADMINER_DEFAULT_SERVER: database
+    ports:
+      - 8082:8080
+
+  maildev:
+    image: maildev/maildev
+    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+    ports:
+      - '8081:80'
+      - '25:25'
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+  redis_insight:
+    image: redis/redisinsight:latest
+    ports:
+      - 5540:5540
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    volumes:
+      - redis_insight_volume_dev:/data
+
+  mongodb:
+    image: mongo
+    ports:
+      - ${MONGO_PORT}:27017
+    volumes:
+      - mongodb_volume_dev:/data/db
+
+  minio:
+    image: minio/minio
+    container_name: minio
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+      MINIO_DEFAULT_BUCKETS: ${MINIO_BUCKET}
+      MINIO_API_PORT_NUMBER: ${MINIO_PORT}
+      MINIO_CONSOLE_PORT_NUMBER: ${MINIO_CONSOLE_PORT}
+    ports:
+      - ${MINIO_PORT}:9000
+      - 9001:9001
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_volume_dev:/data
+
+volumes:
+  redis_insight_volume_dev:
+  mongodb_volume_dev:
+  postgres_volume_dev:
+  minio_volume_dev:
