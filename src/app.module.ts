@@ -10,6 +10,8 @@ import { AnswerModule } from './answer/answer.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SentryGlobalFilter, SentryModule } from '@sentry/nestjs/setup';
 import { APP_FILTER } from '@nestjs/core';
+import { FigureModule } from './figures/figures.module';
+import { InitDataModule } from './initData/initData.module';
 
 @Module({
   imports: [
@@ -28,7 +30,9 @@ import { APP_FILTER } from '@nestjs/core';
     }),
     CountryModule,
     AnswerModule,
+    FigureModule,
     GamesModule,
+    InitDataModule,
   ],
   controllers: [AppController],
   providers: [
