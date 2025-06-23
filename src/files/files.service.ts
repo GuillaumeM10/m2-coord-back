@@ -60,7 +60,7 @@ export class FilesService {
       throw new HttpException('File not found', 400);
     }
 
-    const uploadedFiles = new Promise((resolve, reject) => {
+    const uploadedFiles = new Promise((resolve, reject) => async () => {
       file.originalname = file.originalname.replace(/ /g, '_');
       file.originalname = file.originalname.replace(/[^a-zA-Z0-9_.-]/g, '');
 
@@ -92,13 +92,13 @@ export class FilesService {
             filename: file.originalname,
             size: file.size,
             // eslint-disable-next-line
-          url: `http://localhost:9000/${this._bucketName}/${result.filename}`, // Use the filename with UUID
+            url: `http://localhost:9000/${this._bucketName}/${result.filename}`, // Use the filename with UUID
           };
         })
         .catch((error) => {
           // TODO: Fix typing
           // eslint-disable-next-line
-        throw new HttpException(error, 500);
+          throw new HttpException(error, 500);
         })
     );
   }

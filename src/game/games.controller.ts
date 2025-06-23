@@ -10,7 +10,7 @@ import {
 import { GamesService } from './games.service';
 import { CreateGameDto, GameDto } from './dto/game.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { Game } from './schemas/game.schema';
+import { GameDocument } from './schemas/game.schema';
 
 @ApiTags('games')
 @Controller('games')
@@ -53,11 +53,9 @@ export class GamesController {
     return this.toGameDto(game);
   }
 
-  private toGameDto(game: Game): GameDto {
+  private toGameDto(game: GameDocument): GameDto {
     return {
-      // TODO: Fix typing
-      // eslint-disable-next-line
-            id: game.id ?? game._id.toString(),
+      id: game._id.toString(),
       name: game.name,
       photoUrl: game.photoUrl,
       modes: game.modes,
