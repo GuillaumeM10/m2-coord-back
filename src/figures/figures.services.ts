@@ -24,7 +24,7 @@ export class FigureService {
   }
 
   async findAll() {
-    const figures = await this.figureModel.find({ type: 'flag' }).exec();
+    const figures = await this.figureModel.find({ type: 'figure' }).exec();
     console.log('>>> [FigureService] figures found:', figures.length);
     return figures;
   }

@@ -2,27 +2,27 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateFigureDto } from './dto/figures.dto';
 import { FigureService } from './figures.services';
 
-@Controller('countries')
+@Controller('figures')
 export class FigureController {
-  constructor(private readonly countryService: FigureService) {}
+  constructor(private readonly figureService: FigureService) {}
 
   @Get()
   findAll() {
-    return this.countryService.findAll();
+    return this.figureService.findAll();
   }
 
   @Get('questions')
   getQuestions() {
-    return this.countryService.getQuestions();
+    return this.figureService.getQuestions();
   }
 
   @Get(':code')
   findByCode(@Param('code') question: string, answer: string) {
-    return this.countryService.findByCode(question, answer);
+    return this.figureService.findByCode(question, answer);
   }
 
   @Post()
   create(@Body() dto: CreateFigureDto) {
-    return this.countryService.create(dto);
+    return this.figureService.create(dto);
   }
 }
