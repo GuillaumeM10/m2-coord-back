@@ -1,0 +1,31 @@
+// jest.config.ts
+export default {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  moduleFileExtensions: ['ts', 'js', 'json'],
+  testMatch: ['**/*.spec.ts'],
+  rootDir: '.',
+  coverageDirectory: './coverage',
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.ts',
+    '!src/main.ts',
+    '!src/app.module.ts',
+    '!src/**/*.module.ts',
+    '!src/**/dto/**',
+    '!src/**/schemas/**',
+    '!src/**/enum/**',
+    '!src/minio/**',
+  ],
+  testPathIgnorePatterns: ['/node_modules/', 'dist'],
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    'src/main.ts',
+    'src/app\\.module\\.ts',
+    'src/.*\\.module\\.ts',
+    'src/.*/dto/.*',
+    'src/.*/schemas/.*',
+    'src/.*/enum/.*',
+    'src/minio/.*',
+  ],
+};
