@@ -9,6 +9,7 @@ import { CountryModule } from './country/country.module';
 import { AnswerModule } from './answer/answer.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { InitDataModule } from './initData/initData.module';
+import { FigureModule } from './figures/figures.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { InitDataModule } from './initData/initData.module';
     }),
     CountryModule,
     AnswerModule,
+    FigureModule,
     GamesModule,
     InitDataModule,
   ],
