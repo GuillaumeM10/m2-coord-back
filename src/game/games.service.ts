@@ -7,20 +7,20 @@ import { Game, GameDocument } from './schemas/game.schema';
 export class GamesService {
   constructor(@InjectModel(Game.name) private gameModel: Model<GameDocument>) {}
 
-  async create(data: Partial<Game>): Promise<Game> {
+  async create(data: Partial<Game>): Promise<GameDocument> {
     const game = new this.gameModel(data);
     return game.save();
   }
 
-  async findAll(): Promise<Game[]> {
+  async findAll(): Promise<GameDocument[]> {
     return this.gameModel.find().exec();
   }
 
-  async findOne(id: string): Promise<Game | null> {
+  async findOne(id: string): Promise<GameDocument | null> {
     return this.gameModel.findById(id).exec();
   }
 
-  async delete(id: string): Promise<Game | null> {
+  async delete(id: string): Promise<GameDocument | null> {
     return this.gameModel.findByIdAndDelete(id).exec();
   }
 }

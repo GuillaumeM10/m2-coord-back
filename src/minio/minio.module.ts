@@ -11,16 +11,14 @@ import * as Minio from 'minio';
     {
       inject: [ConfigService],
       provide: MINIO_TOKEN,
-      useFactory: (configService: ConfigService): Promise<Minio.Client> => {
-        const client = new Minio.Client({
+      useFactory: (configService: ConfigService): Minio.Client => {
+        return new Minio.Client({
           endPoint: configService.get('MINIO_ENDPOINT') || 'localhost',
           port: +(configService.get('MINIO_PORT') || 9000),
           accessKey: configService.get('MINIO_ACCESS_KEY'),
           secretKey: configService.get('MINIO_SECRET_KEY'),
           useSSL: false,
         });
-
-        return client;
       },
     },
   ],
