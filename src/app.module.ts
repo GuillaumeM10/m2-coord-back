@@ -8,9 +8,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CountryModule } from './country/country.module';
 import { AnswerModule } from './answer/answer.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { SentryGlobalFilter, SentryModule } from '@sentry/nestjs/setup';
+import { APP_FILTER } from '@nestjs/core';
 
 @Module({
   imports: [
+    SentryModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -28,6 +31,12 @@ import { MongooseModule } from '@nestjs/mongoose';
     GamesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: SentryGlobalFilter,
+    },
+  ],
 })
 export class AppModule {}

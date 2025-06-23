@@ -55,25 +55,27 @@ export class FilesService {
     );
   }
 
-  uploadFile(file: Express.Multer.File) {
+  async uploadFile(file: Express.Multer.File) {
     if (!file) {
       throw new HttpException('File not found', 400);
     }
 
-    const uploadedFiles = new Promise((resolve, reject) => {
+    const uploadedFiles = new Promise((resolve, reject) => async () => {
       file.originalname = file.originalname.replace(/ /g, '_');
       file.originalname = file.originalname.replace(/[^a-zA-Z0-9_.-]/g, '');
 
       const filename = `${randomUUID().toString()}-${file.originalname}`;
 
-      this.minioService.putObject(
+      await this.minioService.putObject(
         this._bucketName,
         filename,
         file.buffer,
         file.size,
 
-        (error, objInfo) => {
+        (error) => {
           if (error) {
+            // TODO: Fix typing
+            // eslint-disable-next-line
             reject(error);
           } else {
             resolve({ filename }); // Pass filename to resolve
@@ -82,16 +84,22 @@ export class FilesService {
       );
     });
 
-    return uploadedFiles
-      .then((result: any) => {
-        return {
-          filename: file.originalname,
-          size: file.size,
-          url: `http://localhost:9000/${this._bucketName}/${result.filename}`, // Use the filename with UUID
-        };
-      })
-      .catch((error) => {
-        throw new HttpException(error, 500);
-      });
+    return (
+      uploadedFiles
+        // TODO: Fix typing
+        .then((result: any) => {
+          return {
+            filename: file.originalname,
+            size: file.size,
+            // eslint-disable-next-line
+            url: `http://localhost:9000/${this._bucketName}/${result.filename}`, // Use the filename with UUID
+          };
+        })
+        .catch((error) => {
+          // TODO: Fix typing
+          // eslint-disable-next-line
+          throw new HttpException(error, 500);
+        })
+    );
   }
 }
