@@ -27,7 +27,7 @@ import { InitDataModule } from './initData/initData.module';
       useFactory: (config: ConfigService) => ({
         uri:
           process.env.MONGO_URI ??
-          `mongodb://${config.get<string>('MONGO_HOST')}:${config.get<string>('MONGO_PORT')}/${config.get<string>('MONGO_DB')}`,
+          `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`,
       }),
     }),
     CountryModule,
