@@ -19,8 +19,8 @@ import { InitDataModule } from './initData/initData.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MinioModule,
-    FilesModule,
+    // MinioModule,
+    // FilesModule,
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
