@@ -7,6 +7,9 @@ export type GameDocument = HydratedDocument<Game>;
 @Schema({ versionKey: false })
 export class Game {
   @Prop()
+  key: string;
+
+  @Prop()
   name: string;
 
   @Prop()

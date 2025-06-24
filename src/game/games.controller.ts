@@ -56,6 +56,7 @@ export class GamesController {
   private toGameDto(game: GameDocument): GameDto {
     return {
       id: game._id.toString(),
+      key: game.key,
       name: game.name,
       photoUrl: game.photoUrl,
       modes: game.modes,
