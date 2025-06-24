@@ -11,6 +11,15 @@ export interface FlagQuestionChoice {
   choices: string[];
 }
 
+export function shuffleArray<T>(array: T[]): T[] {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 @Injectable()
 export class CountryService {
   constructor(
@@ -41,19 +50,16 @@ export class CountryService {
     const allCountries = await this.countryModel.find({ type: 'flag' }).exec();
 
     return correctCountries.map((correct) => {
-      const incorrect = allCountries
-        .filter((c) => c.name !== correct.name)
-        .sort(() => 0.5 - Math.random())
+      const incorrect = shuffleArray(
+        allCountries.filter((c) => c.name !== correct.name),
+      )
         .slice(0, 3)
         .map((c) => c.name);
 
-      const allChoices = [correct.name, ...incorrect].sort(
-        () => 0.5 - Math.random(),
-      );
+      const allChoices = shuffleArray([correct.name, ...incorrect]);
 
       return {
         id: correct._id as string,
-
         image: correct.flagSvg || '',
         choices: allChoices,
       };
