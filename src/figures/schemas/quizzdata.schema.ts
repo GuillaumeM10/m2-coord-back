@@ -4,8 +4,8 @@ import { Document } from 'mongoose';
 
 @Schema({ collection: 'quizzdata' })
 export class QuizzDataFigures extends Document {
-  @Prop({ required: true }) question?: string;
-  @Prop({ required: true }) answer?: string;
+  @Prop({ required: true }) image?: string;
+  @Prop({ required: true }) name?: string;
 
   @Prop({ required: true }) type: string;
 }
