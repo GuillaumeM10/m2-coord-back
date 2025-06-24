@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { QuizzDataFigures } from './schemas/quizzdata.schema';
 import { CreateFigureDto } from './dto/figures.dto';
+import { shuffleArray } from 'src/country/country.service';
 
 export interface QuestionChoice {
   id: string;
@@ -29,7 +30,7 @@ export class FigureService {
     return figures;
   }
 
-  async getRandomCountries(count = 20): Promise<QuizzDataFigures[]> {
+  async getRandomFigures(count = 20): Promise<QuizzDataFigures[]> {
     const figures = await this.figureModel.aggregate<QuizzDataFigures>([
       { $match: { type: 'figure' } },
       { $sample: { size: count } },
@@ -38,19 +39,21 @@ export class FigureService {
   }
 
   async getQuestions(): Promise<QuestionChoice[]> {
-    const correctCountries = await this.getRandomCountries(20);
-    const allCountries = await this.figureModel.find({ type: 'figure' }).exec();
+    const correctFigures = await this.getRandomFigures(20);
+    const allFigures = await this.figureModel.find({ type: 'figure' }).exec();
 
-    return correctCountries.map((correct) => {
-      const incorrect = allCountries
-        .filter((c) => c.question !== correct.question)
-        .sort(() => 0.5 - Math.random())
+    return correctFigures.map((correct) => {
+      const incorrect = shuffleArray(
+        allFigures.filter((c) => c.question !== correct.question),
+      )
         .slice(0, 3)
         .map((c) => c.question);
 
-      const allChoices = [correct.question, ...incorrect]
-        .filter((choice) => choice !== undefined)
-        .sort(() => 0.5 - Math.random());
+      const allChoices = shuffleArray(
+        [correct.question, ...incorrect].filter(
+          (choice) => choice !== undefined,
+        ),
+      );
 
       return {
         id: correct._id as string,
