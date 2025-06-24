@@ -23,8 +23,12 @@ export class AnswerService {
     return { isAnswerCorrect: isCorrect };
   }
 
-  async getCorrectAnswer(questionId: string): Promise<{ correctAnswer: string | null }> {
-    const doc = await this.model.findOne({ _id: questionId, type: 'flag' }).exec();
+  async getCorrectAnswer(
+    questionId: string,
+  ): Promise<{ correctAnswer: string | null }> {
+    const doc = await this.model
+      .findOne({ _id: questionId, type: 'flag' })
+      .exec();
     if (!doc) return { correctAnswer: null };
 
     return { correctAnswer: doc.name };
