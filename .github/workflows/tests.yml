@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'node'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests Jest
+        run: npm run test:cov
+
+      - name: Artifact coverage deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/

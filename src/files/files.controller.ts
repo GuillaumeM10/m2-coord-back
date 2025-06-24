@@ -1,5 +1,4 @@
 import {
-  Body,
   Controller,
   Get,
   Param,
@@ -75,7 +74,7 @@ export class FilesController {
     },
   })
   @UseInterceptors(FileInterceptor('file'))
-  uploadFile(@UploadedFile('file') file: Express.Multer.File) {
-    return this.service.uploadFile(file);
+  async uploadFile(@UploadedFile('file') file: Express.Multer.File) {
+    return await this.service.uploadFile(file);
   }
 }
