@@ -2,10 +2,10 @@ import { IsString } from 'class-validator';
 
 export class CreateFigureDto {
   @IsString()
-  question: string;
+  image: string;
 
   @IsString()
-  answer: string;
+  name: string;
 
   @IsString()
   type?: string;

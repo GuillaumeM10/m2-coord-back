@@ -1,86 +1,86 @@
 [
   {
-    "question": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Napoleon_in_1812.jpg",
-    "answer": "Napoléon Bonaparte",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Napoleon_in_1812.jpg",
+    "name": "Napoléon Bonaparte",
     "type": "figure"
   },
   {
-    "question": "https://histoire-image.org/sites/default/files/2021-11/jeanne-arc-sacre-charlesvii.jpg",
-    "answer": "Jeanne d’Arc",
+    "image": "https://histoire-image.org/sites/default/files/2021-11/jeanne-arc-sacre-charlesvii.jpg",
+    "name": "Jeanne d’Arc",
     "type": "figure"
   },
   {
-    "question": "https://clespourlhistoire.ac-besancon.fr/wp-content/uploads/sites/40/2020/07/m010o.jpg",
-    "answer": "Victor Hugo",
+    "image": "https://clespourlhistoire.ac-besancon.fr/wp-content/uploads/sites/40/2020/07/m010o.jpg",
+    "name": "Victor Hugo",
     "type": "figure"
   },
   {
-    "question": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcT6Ew_PgesXXnu5MTM1S0oP6xlIqGas2rrTf7Vu4SyePTfIrPkBlDCm2NjkE3Ymd1QnT3mmpulyQPzADDg",
-    "answer": "Marie Curie",
+    "image": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcT6Ew_PgesXXnu5MTM1S0oP6xlIqGas2rrTf7Vu4SyePTfIrPkBlDCm2NjkE3Ymd1QnT3mmpulyQPzADDg",
+    "name": "Marie Curie",
     "type": "figure"
   },
   {
-    "question": "https://focus.courrierinternational.com/2022/02/05/0/0/480/594/1280/0/60/0/0b4e5a5_1644065792769-louis-xiv-mignard.jpg",
-    "answer": "Louis XIV",
+    "image": "https://focus.courrierinternational.com/2022/02/05/0/0/480/594/1280/0/60/0/0b4e5a5_1644065792769-louis-xiv-mignard.jpg",
+    "name": "Louis XIV",
     "type": "figure"
   },
   {
-    "question": "https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=50,format=auto/sources/images/einstein_01.jpg",
-    "answer": "Albert Einstein",
+    "image": "https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=50,format=auto/sources/images/einstein_01.jpg",
+    "name": "Albert Einstein",
     "type": "figure"
   },
   {
-    "question": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRjJB5tIDP-SRL1L0vLz2j5oGQS_IfB9JQsxxv3QasWXUN21-FZjPdxW_ejMZ7HQOFG-P_UcR0r3DyJdCe6FPTXNAhttps://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRjJB5tIDP-SRL1L0vLz2j5oGQS_IfB9JQsxxv3QasWXUN21-FZjPdxW_ejMZ7HQOFG-P_UcR0r3DyJdCe6FPTXNA",
-    "answer": "Cléopâtre",
+    "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRjJB5tIDP-SRL1L0vLz2j5oGQS_IfB9JQsxxv3QasWXUN21-FZjPdxW_ejMZ7HQOFG-P_UcR0r3DyJdCe6FPTXNAhttps://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRjJB5tIDP-SRL1L0vLz2j5oGQS_IfB9JQsxxv3QasWXUN21-FZjPdxW_ejMZ7HQOFG-P_UcR0r3DyJdCe6FPTXNA",
+    "name": "Cléopâtre",
     "type": "figure"
   },
   {
-    "question": "https://www.herodote.net/_images/churchill-1.jpg",
-    "answer": "Winston Churchill",
+    "image": "https://www.herodote.net/_images/churchill-1.jpg",
+    "name": "Winston Churchill",
     "type": "figure"
   },
   {
-    "question": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg",
-    "answer": "Mahatma Gandhi",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg",
+    "name": "Mahatma Gandhi",
     "type": "figure"
   },
   {
-    "question": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvYqkQPAVSEK-Q6a1KLVQoKUniA3xEyPv-FFMGQrpufq7jAdcmwT17cXRgPupDDcJQCXXxxNHDrBXqsehTtU0stw",
-    "answer": "Nelson Mandela",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvYqkQPAVSEK-Q6a1KLVQoKUniA3xEyPv-FFMGQrpufq7jAdcmwT17cXRgPupDDcJQCXXxxNHDrBXqsehTtU0stw",
+    "name": "Nelson Mandela",
     "type": "figure"
   },
   {
-    "question": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSLNW3KerhdC4ZRY0cS8fYMF89GtspGTyj4YVBlse_Pmdaiat9A_6_AIa2EBHXANJhHH9NEvtsOBks2a0iJ1TkozQ",
-    "answer": "Marie-Antoinette",
+    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSLNW3KerhdC4ZRY0cS8fYMF89GtspGTyj4YVBlse_Pmdaiat9A_6_AIa2EBHXANJhHH9NEvtsOBks2a0iJ1TkozQ",
+    "name": "Marie-Antoinette",
     "type": "figure"
   },
   {
-    "question": "https://images.ctfassets.net/qpn1gztbusu2/7cr7Y7O41XuBqPbgLWnHEv/ccb6a5586df8eb1b0ad9a8410bdc4e48/simone-beauvoir-biographie.jpg?fm=jpg&w=3840&q=70",
-    "answer": "Simone de Beauvoir",
+    "image": "https://images.ctfassets.net/qpn1gztbusu2/7cr7Y7O41XuBqPbgLWnHEv/ccb6a5586df8eb1b0ad9a8410bdc4e48/simone-beauvoir-biographie.jpg?fm=jpg&w=3840&q=70",
+    "name": "Simone de Beauvoir",
     "type": "figure"
   },
   {
-    "question": "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTcSuv_iGxYNL0izIghvTtsnGbs2JrnByM4GWVaBYmzu0efCCHY1sAd1coD2ILepKN8eUirKM9zMmegv7I",
-    "answer": "Frida Kahlo",
+    "image": "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTcSuv_iGxYNL0izIghvTtsnGbs2JrnByM4GWVaBYmzu0efCCHY1sAd1coD2ILepKN8eUirKM9zMmegv7I",
+    "name": "Frida Kahlo",
     "type": "figure"
   },
   {
-    "question": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQgAgPpQ3XkIvdohs4895lMgXWc2otUhvFp07duEkuDxrPzZ84uos0qsCyF1PnCS6MY6D7glQrO_smPV5zb9ip5gA",
-    "answer": "Léonard de Vinci",
+    "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQgAgPpQ3XkIvdohs4895lMgXWc2otUhvFp07duEkuDxrPzZ84uos0qsCyF1PnCS6MY6D7glQrO_smPV5zb9ip5gA",
+    "name": "Léonard de Vinci",
     "type": "figure"
   },
   {
-    "question": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
-    "answer": "Galilée",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
+    "name": "Galilée",
     "type": "figure"
   },
   {
-    "question": "https://odysseum.eduscol.education.fr/sites/default/files/2019-10/cle%CC%81opa%CC%82tre%20VII%20-%20copie_0.jpg",
-    "answer": "Cléopâtre VII",
+    "image": "https://odysseum.eduscol.education.fr/sites/default/files/2019-10/cle%CC%81opa%CC%82tre%20VII%20-%20copie_0.jpg",
+    "name": "Cléopâtre VII",
     "type": "figure"
   },
   {
-    "question": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSyJILgL5O7toNI7II5YEVlODWKlRVvzcuiU3FOwFBNFcDQlzvoW_A-iugNfWKmEyagJCMJ1WKcurC946w",
-    "answer": "Napoléon Bonaparte"
+    "image": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSyJILgL5O7toNI7II5YEVlODWKlRVvzcuiU3FOwFBNFcDQlzvoW_A-iugNfWKmEyagJCMJ1WKcurC946w",
+    "name": "Napoléon Bonaparte"
   }
 ]

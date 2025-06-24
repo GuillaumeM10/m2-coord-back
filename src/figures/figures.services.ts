@@ -44,20 +44,18 @@ export class FigureService {
 
     return correctFigures.map((correct) => {
       const incorrect = shuffleArray(
-        allFigures.filter((c) => c.question !== correct.question),
+        allFigures.filter((c) => c.name !== correct.name),
       )
         .slice(0, 3)
-        .map((c) => c.question);
+        .map((c) => c.name);
 
       const allChoices = shuffleArray(
-        [correct.question, ...incorrect].filter(
-          (choice) => choice !== undefined,
-        ),
+        [correct.name, ...incorrect].filter((choice) => choice !== undefined),
       );
 
       return {
         id: correct._id as string,
-        image: correct.answer || '',
+        image: correct.image || '',
         choices: allChoices,
       };
     });

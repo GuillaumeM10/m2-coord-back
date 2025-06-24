@@ -8,6 +8,12 @@ import flagsData from './jsonData/flags.json';
 import figuresData from './jsonData/historical-figures.json';
 import gamesData from './jsonData/games.json';
 
+interface RawFigure {
+  image: string;
+  name: string;
+  type?: string;
+}
+
 @Injectable()
 export class InitDataService implements OnModuleInit {
   private readonly logger = new Logger(InitDataService.name);
@@ -16,7 +22,7 @@ export class InitDataService implements OnModuleInit {
     @InjectModel(QuizzData.name) private countryModel: Model<QuizzData>,
     @InjectModel(QuizzDataFigures.name)
     private figureModel: Model<QuizzDataFigures>,
-    @InjectModel(Game.name) private gameModel: Model<Game>, // Add Game model
+    @InjectModel(Game.name) private gameModel: Model<Game>,
   ) {}
 
   async onModuleInit() {
@@ -26,7 +32,7 @@ export class InitDataService implements OnModuleInit {
   async initializeData() {
     await this.initFlagData();
     await this.initFigureData();
-    await this.initGamesData(); // Add this line
+    await this.initGamesData();
   }
 
   private async initFlagData() {
@@ -40,13 +46,11 @@ export class InitDataService implements OnModuleInit {
       );
 
       try {
-        // Check if flagsData is an array before proceeding
         if (!Array.isArray(flagsData)) {
           this.logger.error('Flag data is not an array!');
           return;
         }
 
-        // Process flag data in batches to avoid overloading
         const validFlags = flagsData
           .filter((flag) => flag.type === 'flag' && flag.name && flag.flagSvg)
           .map((flag) => ({
@@ -54,7 +58,6 @@ export class InitDataService implements OnModuleInit {
             type: 'flag',
           }));
 
-        // If we have valid flags, insert them using the model
         if (validFlags.length > 0) {
           await this.countryModel.insertMany(validFlags);
           this.logger.log(
@@ -67,7 +70,10 @@ export class InitDataService implements OnModuleInit {
         if (error instanceof Error) {
           this.logger.error('Failed to initialize flag data', error.stack);
         } else {
-          this.logger.error('Failed to initialize flag data with an unknown error', error);
+          this.logger.error(
+            'Failed to initialize flag data with an unknown error',
+            error,
+          );
         }
       }
     } else {
@@ -88,24 +94,22 @@ export class InitDataService implements OnModuleInit {
       );
 
       try {
-        // Check if figuresData is an array before proceeding
         if (!Array.isArray(figuresData)) {
           this.logger.error('Figure data is not an array!');
           return;
         }
 
-        // Transform figure data according to the schema requirements
-        const validFigures = figuresData
+        const rawFigures = figuresData as RawFigure[];
+
+        const validFigures = rawFigures
           .filter(
-            (figure) =>
-              figure.answer && figure.question && figure.type === 'figure',
+            (figure) => figure.name && figure.image && figure.type === 'figure',
           )
           .map((figure) => ({
-            question: figure.question,
-            answer: figure.answer,
+            image: figure.image,
+            name: figure.name,
             type: 'figure',
-            name: figure.answer,
-            code: figure.answer.substring(0, 2).toUpperCase(),
+            code: figure.name.substring(0, 2).toUpperCase(),
           }));
 
         if (validFigures.length > 0) {
@@ -120,7 +124,10 @@ export class InitDataService implements OnModuleInit {
         if (error instanceof Error) {
           this.logger.error('Failed to initialize figure data', error.stack);
         } else {
-          this.logger.error('Failed to initialize figure data with an unknown error', error);
+          this.logger.error(
+            'Failed to initialize figure data with an unknown error',
+            error,
+          );
         }
       }
     } else {
@@ -137,15 +144,12 @@ export class InitDataService implements OnModuleInit {
       this.logger.log('No games found in database. Initializing from JSON...');
 
       try {
-        // Check if gamesData is an array before proceeding
         if (!Array.isArray(gamesData)) {
           this.logger.error('Games data is not an array!');
           return;
         }
 
-        // Process games data - remove MongoDB specific _id format
         const validGames = gamesData.map((game) => {
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { _id, ...gameData } = game;
           return gameData;
         });
@@ -162,7 +166,10 @@ export class InitDataService implements OnModuleInit {
         if (error instanceof Error) {
           this.logger.error('Failed to initialize games data', error.stack);
         } else {
-          this.logger.error('Failed to initialize games data with an unknown error', error);
+          this.logger.error(
+            'Failed to initialize games data with an unknown error',
+            error,
+          );
         }
       }
     } else {
