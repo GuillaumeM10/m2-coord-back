@@ -22,4 +22,11 @@ export class AnswerService {
       doc.name.trim().toLowerCase() === dto.answer.trim().toLowerCase();
     return { isAnswerCorrect: isCorrect };
   }
+
+  async getCorrectAnswer(questionId: string): Promise<{ correctAnswer: string | null }> {
+    const doc = await this.model.findOne({ _id: questionId, type: 'flag' }).exec();
+    if (!doc) return { correctAnswer: null };
+
+    return { correctAnswer: doc.name };
+  }
 }
