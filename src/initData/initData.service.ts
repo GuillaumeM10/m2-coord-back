@@ -150,7 +150,7 @@ export class InitDataService implements OnModuleInit {
         }
 
         const validGames = gamesData.map((game) => {
-          const { _id, ...gameData } = game;
+          const { ...gameData } = game;
           return gameData;
         });
 

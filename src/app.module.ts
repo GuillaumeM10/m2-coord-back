@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MinioModule } from './minio/minio.module';
-import { FilesModule } from './files/files.module';
 import { GamesModule } from './game/games.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CountryModule } from './country/country.module';
@@ -19,12 +17,10 @@ import { InitDataModule } from './initData/initData.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    // MinioModule,
-    // FilesModule,
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
+      useFactory: () => ({
         uri:
           process.env.MONGO_URI ??
           `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`,
