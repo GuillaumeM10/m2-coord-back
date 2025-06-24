@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MinioModule } from './minio/minio.module';
-import { FilesModule } from './files/files.module';
+// import { MinioModule } from './minio/minio.module';
+// import { FilesModule } from './files/files.module';
 import { GamesModule } from './game/games.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CountryModule } from './country/country.module';
