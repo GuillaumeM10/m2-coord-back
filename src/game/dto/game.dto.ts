@@ -24,6 +24,9 @@ export class GameDto {
   id: string;
 
   @ApiProperty()
+  key: string;
+
+  @ApiProperty()
   name: string;
 
   @ApiProperty()
