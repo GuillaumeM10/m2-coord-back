@@ -1,9 +1,9 @@
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { QuizzData } from 'src/country/schemas/quizzdata.schema';
-import { QuizzDataFigures } from 'src/figures/schemas/quizzdata.schema';
-import { Game } from 'src/game/schemas/game.schema';
+import { QuizzData } from '../country/schemas/quizzdata.schema';
+import { QuizzDataFigures } from '../figures/schemas/quizzdata.schema';
+import { Game } from '../game/schemas/game.schema';
 import flagsData from './jsonData/flags.json';
 import figuresData from './jsonData/historical-figures.json';
 import gamesData from './jsonData/games.json';

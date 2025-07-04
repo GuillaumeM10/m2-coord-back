@@ -28,9 +28,7 @@ export class GamesController {
   @ApiOkResponse({ type: [GameDto] })
   async findAll(): Promise<GameDto[]> {
     const games = await this.gameService.findAll();
-    // TODO: Fix this line
-    // eslint-disable-next-line
-    return games.map(this.toGameDto);
+    return games.map((game) => this.toGameDto(game));
   }
 
   @Get(':id')
