@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { QuizzData } from './schemas/quizzdata.schema';
 import { CreateCountryDto } from './dto/create-country.dto';
-import { randomBytes } from 'crypto';
+import { shuffleArray } from '../common/utils/shuffleArray';
 
 export interface FlagQuestionChoice {
   id: string;

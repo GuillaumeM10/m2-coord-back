@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { QuizzDataFigures } from './schemas/quizzdata.schema';
 import { CreateFigureDto } from './dto/figures.dto';
-import { randomBytes } from 'crypto';
+import { shuffleArray } from '../common/utils/shuffleArray';
 
 export interface QuestionChoice {
   id: string;
