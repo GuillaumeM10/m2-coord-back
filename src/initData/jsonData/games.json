@@ -1,20 +1,14 @@
 [
   {
-    "_id": {
-      "$oid": "682c3fedb4f006e6f83bcf33"
-    },
     "key": "historical-figures",
     "name": "Personnages historiques",
-    "photoUrl": "picture-test1.png",
-    "modes": ["CLASSIC"]
+    "photoUrl": "figures.png",
+    "modes": ["Classique"]
   },
   {
-    "_id": {
-      "$oid": "6847fc5a72f13fb5580fe319"
-    },
     "key": "flags",
     "name": "Drapeaux",
-    "photoUrl": "picture-test2.png",
-    "modes": ["CLASSIC"]
+    "photoUrl": "flags.png",
+    "modes": ["Classique"]
   }
 ]

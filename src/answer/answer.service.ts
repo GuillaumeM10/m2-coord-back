@@ -27,7 +27,7 @@ export class AnswerService {
     questionId: string,
   ): Promise<{ correctAnswer: string | null }> {
     const doc = await this.model
-      .findOne({ _id: questionId, type: 'flag' })
+      .findOne({ _id: questionId})
       .exec();
     if (!doc) return { correctAnswer: null };
 
