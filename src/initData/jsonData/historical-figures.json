@@ -1,10 +1,5 @@
 [
   {
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Napoleon_in_1812.jpg",
-    "name": "Napoléon Bonaparte",
-    "type": "figure"
-  },
-  {
     "image": "https://histoire-image.org/sites/default/files/2021-11/jeanne-arc-sacre-charlesvii.jpg",
     "name": "Jeanne d’Arc",
     "type": "figure"
@@ -30,7 +25,7 @@
     "type": "figure"
   },
   {
-    "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRjJB5tIDP-SRL1L0vLz2j5oGQS_IfB9JQsxxv3QasWXUN21-FZjPdxW_ejMZ7HQOFG-P_UcR0r3DyJdCe6FPTXNAhttps://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRjJB5tIDP-SRL1L0vLz2j5oGQS_IfB9JQsxxv3QasWXUN21-FZjPdxW_ejMZ7HQOFG-P_UcR0r3DyJdCe6FPTXNA",
+    "image": "https://i-enlisted.cdn.gaijin.net/original/3X/d/3/d3a655637f939641af9cf4b23d33fd51796547f5.jpeg",
     "name": "Cléopâtre",
     "type": "figure"
   },
@@ -81,6 +76,7 @@
   },
   {
     "image": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSyJILgL5O7toNI7II5YEVlODWKlRVvzcuiU3FOwFBNFcDQlzvoW_A-iugNfWKmEyagJCMJ1WKcurC946w",
-    "name": "Napoléon Bonaparte"
+    "name": "Napoléon Bonaparte",
+    "type": "figure"
   }
 ]
