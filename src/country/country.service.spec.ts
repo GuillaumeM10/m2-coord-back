@@ -21,7 +21,7 @@ describe('CountryService', () => {
         CountryService,
         {
           provide: getModelToken(QuizzData.name),
-          useValue: Object.assign(mockConstructor, mockModel), // 👈 combine constructeur et méthodes
+          useValue: Object.assign(mockConstructor, mockModel),
         },
       ],
     }).compile();

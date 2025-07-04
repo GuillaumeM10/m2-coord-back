@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { FigureController } from './figure.controller';
-import { FigureService } from './figure.service';
-import { CreateFigureDto } from './dto/create-figure.dto';
+import { FigureController } from './figures.controller';
+import { FigureService } from './figures.services';
+import { CreateFigureDto } from './dto/figures.dto';
 
 describe('FigureController', () => {
   let controller: FigureController;
@@ -63,21 +63,28 @@ describe('FigureController', () => {
   });
 
   it('should return a figure by code', async () => {
-    const expected = { name: 'Napoleon Bonaparte', code: 'NB' };
+    const expected = {
+      name: 'Napoleon Bonaparte',
+      question: 'Who was French Emperor?',
+      answer: 'Napoleon Bonaparte',
+    };
     mockService.findByCode.mockResolvedValue(expected);
 
-    const result = await controller.findByCode('NB');
+    const result = await controller.findByCode(
+      'Who was French Emperor?',
+      'Napoleon Bonaparte',
+    );
     expect(result).toEqual(expected);
-    expect(mockService.findByCode).toHaveBeenCalledWith('NB');
+    expect(mockService.findByCode).toHaveBeenCalledWith(
+      'Who was French Emperor?',
+      'Napoleon Bonaparte',
+    );
   });
 
   it('should create a figure', async () => {
     const dto: CreateFigureDto = {
       name: 'Napoleon Bonaparte',
-      code: 'NB',
       image: 'https://images.com/napoleon.jpg',
-      question: 'Who was the French Emperor?',
-      answer: 'Napoleon Bonaparte',
     };
     const expected = { ...dto, _id: 'abc123' };
     mockService.create.mockResolvedValue(expected);

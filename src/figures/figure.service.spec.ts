@@ -111,15 +111,23 @@ describe('FigureService', () => {
   });
 
   it('should return a figure by code', async () => {
-    const mockResult = { name: 'Napoleon Bonaparte', code: 'NB' };
+    const mockResult = {
+      name: 'Napoleon Bonaparte',
+      question: 'Who was French Emperor?',
+      answer: 'Napoleon Bonaparte',
+    };
     mockModel.findOne.mockReturnValueOnce({
       exec: () => Promise.resolve(mockResult),
     });
 
-    const result = await service.findByCode('NB');
+    const result = await service.findByCode(
+      'Who was French Emperor?',
+      'Napoleon Bonaparte',
+    );
     expect(result).toEqual(mockResult);
     expect(mockModel.findOne).toHaveBeenCalledWith({
-      code: 'NB',
+      question: 'Who was French Emperor?',
+      answer: 'Napoleon Bonaparte',
       type: 'figure',
     });
   });

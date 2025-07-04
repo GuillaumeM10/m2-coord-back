@@ -10,6 +10,7 @@ export default {
   collectCoverageFrom: [
     'src/**/*.ts',
     '!src/main.ts',
+    '!src/instrument.ts',
     '!src/app.module.ts',
     '!src/**/*.module.ts',
     '!src/**/dto/**',
@@ -21,6 +22,7 @@ export default {
   coveragePathIgnorePatterns: [
     '/node_modules/',
     'src/main.ts',
+    'src/instrument.ts',
     'src/app\\.module\\.ts',
     'src/.*\\.module\\.ts',
     'src/.*/dto/.*',
