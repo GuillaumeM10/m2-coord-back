@@ -2,13 +2,13 @@
   {
     "key": "historical-figures",
     "name": "Personnages historiques",
-    "photoUrl": "picture-test1.png",
+    "photoUrl": "figures.png",
     "modes": ["CLASSIC"]
   },
   {
     "key": "flags",
     "name": "Drapeaux",
-    "photoUrl": "picture-test2.png",
+    "photoUrl": "flags.png",
     "modes": ["CLASSIC"]
   }
 ]
