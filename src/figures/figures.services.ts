@@ -55,7 +55,7 @@ export class FigureService {
 
       return {
         id: correct._id as string,
-        image: correct.image || '',
+        image: correct.image ?? '',
         choices: allChoices,
       };
     });
