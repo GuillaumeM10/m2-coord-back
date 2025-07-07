@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { QuizzData } from './schemas/quizzdata.schema';
 import { CreateCountryDto } from './dto/create-country.dto';
-import { randomBytes } from 'crypto';
+import { shuffleArray } from '../common/utils/shuffleArray';
 
 export interface FlagQuestionChoice {
   id: string;
@@ -12,24 +12,11 @@ export interface FlagQuestionChoice {
   choices: string[];
 }
 
-function secureRandom(): number {
-  const buf = randomBytes(4);
-  return buf.readUInt32BE() / 0xffffffff;
-}
-
-export function shuffleArray<T>(array: T[]): T[] {
-  const result = [...array];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(secureRandom() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
 @Injectable()
 export class CountryService {
   constructor(
-    @InjectModel(QuizzData.name) private countryModel: Model<QuizzData>,
+    @InjectModel(QuizzData.name)
+    private readonly countryModel: Model<QuizzData>,
   ) {}
 
   async create(dto: CreateCountryDto) {
