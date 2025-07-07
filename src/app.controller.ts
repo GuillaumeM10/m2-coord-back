@@ -10,7 +10,7 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get()
+  @Get('error')
   getError(): string {
     throw new Error('Controller error');
   }
