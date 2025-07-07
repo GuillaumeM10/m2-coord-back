@@ -1,9 +1,9 @@
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { QuizzData } from 'src/country/schemas/quizzdata.schema';
-import { QuizzDataFigures } from 'src/figures/schemas/quizzdata.schema';
-import { Game } from 'src/game/schemas/game.schema';
+import { QuizzData } from '../country/schemas/quizzdata.schema';
+import { QuizzDataFigures } from '../figures/schemas/quizzdata.schema';
+import { Game } from '../game/schemas/game.schema';
 import flagsData from './jsonData/flags.json';
 import figuresData from './jsonData/historical-figures.json';
 import gamesData from './jsonData/games.json';
@@ -19,10 +19,11 @@ export class InitDataService implements OnModuleInit {
   private readonly logger = new Logger(InitDataService.name);
 
   constructor(
-    @InjectModel(QuizzData.name) private countryModel: Model<QuizzData>,
+    @InjectModel(QuizzData.name)
+    private readonly countryModel: Model<QuizzData>,
     @InjectModel(QuizzDataFigures.name)
-    private figureModel: Model<QuizzDataFigures>,
-    @InjectModel(Game.name) private gameModel: Model<Game>,
+    private readonly figureModel: Model<QuizzDataFigures>,
+    @InjectModel(Game.name) private readonly gameModel: Model<Game>,
   ) {}
 
   async onModuleInit() {

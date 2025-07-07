@@ -7,6 +7,7 @@ describe('AnswerController', () => {
   let controller: AnswerController;
   const mockService = {
     validate: jest.fn(),
+    getCorrectAnswer: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -29,5 +30,14 @@ describe('AnswerController', () => {
     const result = await controller.validate(dto);
     expect(result).toEqual(mockResult);
     expect(mockService.validate).toHaveBeenCalledWith(dto);
+  });
+
+  it('should return correct answer', async () => {
+    const expected = { correctAnswer: 'Paris' };
+    mockService.getCorrectAnswer.mockResolvedValue(expected);
+
+    const result = await controller.getCorrectAnswer('question1');
+    expect(result).toEqual(expected);
+    expect(mockService.getCorrectAnswer).toHaveBeenCalledWith('question1');
   });
 });

@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { QuizzDataFigures } from './schemas/quizzdata.schema';
 import { CreateFigureDto } from './dto/figures.dto';
-import { shuffleArray } from 'src/country/country.service';
+import { shuffleArray } from '../common/utils/shuffleArray';
 
 export interface QuestionChoice {
   id: string;
@@ -16,7 +16,7 @@ export interface QuestionChoice {
 export class FigureService {
   constructor(
     @InjectModel(QuizzDataFigures.name)
-    private figureModel: Model<QuizzDataFigures>,
+    private readonly figureModel: Model<QuizzDataFigures>,
   ) {}
 
   async create(dto: CreateFigureDto) {

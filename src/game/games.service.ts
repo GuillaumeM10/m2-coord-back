@@ -5,7 +5,9 @@ import { Game, GameDocument } from './schemas/game.schema';
 
 @Injectable()
 export class GamesService {
-  constructor(@InjectModel(Game.name) private gameModel: Model<GameDocument>) {}
+  constructor(
+    @InjectModel(Game.name) private readonly gameModel: Model<GameDocument>,
+  ) {}
 
   async create(data: Partial<Game>): Promise<GameDocument> {
     const game = new this.gameModel(data);
