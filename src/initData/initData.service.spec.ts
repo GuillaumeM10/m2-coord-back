@@ -55,8 +55,15 @@ describe('InitDataService', () => {
   });
 
   it('should skip flag initialization if data exists', async () => {
+    // Mock all countDocuments calls properly
     mockCountryModel.countDocuments.mockReturnValue({
       exec: jest.fn().mockResolvedValue(10),
+    });
+    mockFigureModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(5),
+    });
+    mockGameModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(2),
     });
 
     const loggerSpy = jest.spyOn(Logger.prototype, 'log');
@@ -75,6 +82,14 @@ describe('InitDataService', () => {
     });
     mockCountryModel.insertMany.mockResolvedValue([]);
 
+    // Mock other models to have data to avoid errors
+    mockFigureModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(5),
+    });
+    mockGameModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(2),
+    });
+
     const loggerSpy = jest.spyOn(Logger.prototype, 'log');
 
     await service.initializeData();
@@ -91,6 +106,9 @@ describe('InitDataService', () => {
     });
     mockFigureModel.countDocuments.mockReturnValue({
       exec: jest.fn().mockResolvedValue(5),
+    });
+    mockGameModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(2),
     });
 
     const loggerSpy = jest.spyOn(Logger.prototype, 'log');
@@ -111,6 +129,9 @@ describe('InitDataService', () => {
       exec: jest.fn().mockResolvedValue(0),
     });
     mockFigureModel.insertMany.mockResolvedValue([]);
+    mockGameModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(2),
+    });
 
     const loggerSpy = jest.spyOn(Logger.prototype, 'log');
 
@@ -165,11 +186,19 @@ describe('InitDataService', () => {
     expect(mockGameModel.insertMany).toHaveBeenCalled();
   });
 
-  it('should handle errors during initialization', async () => {
+  it('should handle errors during flag initialization', async () => {
     mockCountryModel.countDocuments.mockReturnValue({
       exec: jest.fn().mockResolvedValue(0),
     });
     mockCountryModel.insertMany.mockRejectedValue(new Error('Database error'));
+
+    // Mock other models to avoid cascading errors
+    mockFigureModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(5),
+    });
+    mockGameModel.countDocuments.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(2),
+    });
 
     const loggerSpy = jest.spyOn(Logger.prototype, 'error');
 

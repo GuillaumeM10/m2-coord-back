@@ -23,6 +23,7 @@ export default {
     '/node_modules/',
     'src/main.ts',
     'src/instrument.ts',
+    'src/initData/.*',
     'src/app\\.module\\.ts',
     'src/.*\\.module\\.ts',
     'src/.*/dto/.*',

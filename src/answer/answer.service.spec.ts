@@ -75,4 +75,25 @@ describe('AnswerService', () => {
     const result = await service.validate(dto);
     expect(result).toEqual({ isAnswerCorrect: false });
   });
+
+  it('should return correct answer for a valid question ID', async () => {
+    const mockAnswer = { _id: 'question1', name: 'Paris' };
+    mockModel.findOne.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(mockAnswer),
+    });
+
+    const result = await service.getCorrectAnswer('question1');
+    expect(result).toEqual({ correctAnswer: 'Paris' });
+    expect(mockModel.findOne).toHaveBeenCalledWith({ _id: 'question1' });
+  });
+
+  it('should return null for invalid question ID', async () => {
+    mockModel.findOne.mockReturnValue({
+      exec: jest.fn().mockResolvedValue(null),
+    });
+
+    const result = await service.getCorrectAnswer('invalid-id');
+    expect(result).toEqual({ correctAnswer: null });
+    expect(mockModel.findOne).toHaveBeenCalledWith({ _id: 'invalid-id' });
+  });
 });
