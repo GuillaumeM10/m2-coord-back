@@ -53,7 +53,7 @@ export class CountryService {
 
       return {
         id: correct._id as string,
-        image: correct.flagSvg || '',
+        image: correct.flagSvg ?? '',
         choices: allChoices,
       };
     });
