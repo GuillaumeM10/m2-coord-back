@@ -15,7 +15,8 @@ export interface FlagQuestionChoice {
 @Injectable()
 export class CountryService {
   constructor(
-    @InjectModel(QuizzData.name) private countryModel: Model<QuizzData>,
+    @InjectModel(QuizzData.name)
+    private readonly countryModel: Model<QuizzData>,
   ) {}
 
   async create(dto: CreateCountryDto) {

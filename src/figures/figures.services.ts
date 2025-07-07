@@ -16,7 +16,7 @@ export interface QuestionChoice {
 export class FigureService {
   constructor(
     @InjectModel(QuizzDataFigures.name)
-    private figureModel: Model<QuizzDataFigures>,
+    private readonly figureModel: Model<QuizzDataFigures>,
   ) {}
 
   async create(dto: CreateFigureDto) {

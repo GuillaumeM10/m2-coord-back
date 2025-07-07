@@ -19,10 +19,11 @@ export class InitDataService implements OnModuleInit {
   private readonly logger = new Logger(InitDataService.name);
 
   constructor(
-    @InjectModel(QuizzData.name) private countryModel: Model<QuizzData>,
+    @InjectModel(QuizzData.name)
+    private readonly countryModel: Model<QuizzData>,
     @InjectModel(QuizzDataFigures.name)
-    private figureModel: Model<QuizzDataFigures>,
-    @InjectModel(Game.name) private gameModel: Model<Game>,
+    private readonly figureModel: Model<QuizzDataFigures>,
+    @InjectModel(Game.name) private readonly gameModel: Model<Game>,
   ) {}
 
   async onModuleInit() {
